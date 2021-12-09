@@ -7,16 +7,12 @@ def explore_bassin(terrain, exploration_terrain, coordinate):
     if terrain[coordinate[0], coordinate[1]] == 9:
         return
     exploration_terrain[coordinate[0], coordinate[1]] = terrain[coordinate[0], coordinate[1]]
-    #if coordinate[0] > 0 and exploration_terrain[coordinate[0]-1, coordinate[1]] == -1 and terrain[coordinate[0]-1, coordinate[1]] == terrain[coordinate[0], coordinate[1]]+1:
     if coordinate[0] > 0 and exploration_terrain[coordinate[0]-1, coordinate[1]] == -1 and terrain[coordinate[0]-1, coordinate[1]] != 9:
         explore_bassin(terrain, exploration_terrain, [coordinate[0]-1, coordinate[1]])    
-    # if coordinate[1] > 0 and exploration_terrain[coordinate[0], coordinate[1]-1] == -1 and terrain[coordinate[0], coordinate[1]-1] == terrain[coordinate[0], coordinate[1]]+1:
     if coordinate[1] > 0 and exploration_terrain[coordinate[0], coordinate[1]-1] == -1 and terrain[coordinate[0], coordinate[1]-1] != 9:
         explore_bassin(terrain, exploration_terrain, [coordinate[0], coordinate[1]-1])    
-    # if coordinate[0] < terrain.shape[0]-1 and exploration_terrain[coordinate[0]+1, coordinate[1]] == -1 and terrain[coordinate[0]+1, coordinate[1]] == terrain[coordinate[0], coordinate[1]]+1:
     if coordinate[0] < terrain.shape[0]-1 and exploration_terrain[coordinate[0]+1, coordinate[1]] == -1 and terrain[coordinate[0]+1, coordinate[1]] != 9:
         explore_bassin(terrain, exploration_terrain, [coordinate[0]+1, coordinate[1]])    
-    #if coordinate[1] < terrain.shape[1]-1 and exploration_terrain[coordinate[0], coordinate[1]+1] == -1 and terrain[coordinate[0], coordinate[1]+1] == terrain[coordinate[0], coordinate[1]]+1:
     if coordinate[1] < terrain.shape[1]-1 and exploration_terrain[coordinate[0], coordinate[1]+1] == -1 and terrain[coordinate[0], coordinate[1]+1] != 9:
         explore_bassin(terrain, exploration_terrain, [coordinate[0], coordinate[1]+1])
 
