@@ -88,4 +88,3 @@ for p1, p2 in separated_inputs:
     total += int(full_nb)
     
 print("Total:", total)
-
